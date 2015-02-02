@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LyO-HD-Vyz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LyO-HD-Vyz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Lista della spesa-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lista_Spesa" customModuleProvider="target" sceneMemberID="viewController">
@@ -92,7 +92,14 @@
                             <constraint firstItem="xHv-8Q-5dX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="ymn-eK-coG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vbN-7B-hwr"/>
+                    <navigationItem key="navigationItem" title="Lista della spesa" id="vbN-7B-hwr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="bIw-D1-SEu">
+                            <color key="tintColor" red="0.9803922176361084" green="0.058823533356189728" blue="0.1098039299249649" alpha="1" colorSpace="deviceRGB"/>
+                            <connections>
+                                <action selector="deleteAll" destination="BYZ-38-t0r" id="wzl-fD-KLZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="countField" destination="979-Or-J2y" id="i9d-qx-PSM"/>
                         <outlet property="myTableView" destination="LsL-us-d0g" id="PFf-vd-YLd"/>

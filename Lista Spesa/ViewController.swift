@@ -21,6 +21,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @IBAction func deleteAll()
+    {
+        self.items.removeAll(keepCapacity : false)
+        self.myTableView.reloadData()
+    }
+    
     @IBAction func addNewItem()
     {
         var name : String = self.nameField.text
@@ -47,17 +53,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK - qui i protocolli
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         return 1;
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return self.items.count
     }
     
     let identifier = "tableCell"
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         var cell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as UITableViewCell!
         if cell == nil
         {
@@ -70,9 +79,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        self.items.removeAtIndex(indexPath.row)
+        self.myTableView.reloadData()
+    }
+    
     
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
