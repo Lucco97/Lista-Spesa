@@ -23,8 +23,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func deleteAll()
     {
-        self.items.removeAll(keepCapacity : false)
-        self.myTableView.reloadData()
+        let alert = UIAlertController(title: "Attenzione", message: "Sei sicuro di voler cancellare tutti gli elementi?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        var action = UIAlertAction(title: "Cancella", style: UIAlertActionStyle.Destructive) { (action : UIAlertAction!) -> Void in
+            self.items.removeAll(keepCapacity : false)
+            self.myTableView.reloadData()
+        }
+        
+        var dismissAction = UIAlertAction(title: "Annulla", style: UIAlertActionStyle.Default, handler: nil)
+        
+        alert.addAction(action)
+        alert.addAction(dismissAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
     @IBAction func addNewItem()
