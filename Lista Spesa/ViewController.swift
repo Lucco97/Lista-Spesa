@@ -1,10 +1,10 @@
 //
 //  ViewController.swift
 //  Lista Spesa
-//
-//  Created by Fabio Luccon on 24/01/15.
+//  
+//  Created by Fabio Luccon and Andrea Spada on 24/01/15.
 //  Copyright (c) 2015 Kennedy. All rights reserved.
-//
+// 
 
 import UIKit
 
